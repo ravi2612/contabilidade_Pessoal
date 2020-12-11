@@ -1,4 +1,4 @@
-import 'package:contabilidade_Pessoal/transaction.dart';
+import 'package:contabilidade_Pessoal/models/transaction.dart';
 import 'package:flutter/material.dart';
 
 main() => (ExpensesApp());
@@ -33,8 +33,8 @@ class MyHomePage extends StatelessWidget {
           title: Text('Despesas Pessoais'),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
               width: double.infinity,
@@ -51,11 +51,27 @@ class MyHomePage extends StatelessWidget {
                     child: Row(
                       children: [
                         Container(
+                          margin: EdgeInsets.symmetric(
+                            horizontal: 15,
+                            vertical: 10
+                          ),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.purple,
+                              width: 2,
+                            )
+                          ),
+                          padding:EdgeInsets.all(10) ,
                           child: Text(tr.value.toString(),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.purple,
+                          ),
                           ),
                     ),
                     Column(
-                      children: [
+                      children: [ 
                         Text(tr.title),
                         Text(tr.date.toString()),
                       ],
@@ -63,8 +79,10 @@ class MyHomePage extends StatelessWidget {
                   ],
                 ),
               );
-            }).toList())
+            }).toList(),
+            )
           ],
-        ));
+        ),
+      );
   }
 }
