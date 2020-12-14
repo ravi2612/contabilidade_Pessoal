@@ -1,4 +1,5 @@
-import 'package:contabilidade_Pessoal/models/transaction.dart';
+import 'models/transaction.dart';
+
 import 'package:flutter/material.dart';
 
 main() => (ExpensesApp());
@@ -33,12 +34,10 @@ class MyHomePage extends StatelessWidget {
           title: Text('Despesas Pessoais'),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
-              width: double.infinity,
-              alignment: Alignment.center,
               child: Card(
                 color: Colors.blueAccent,
                 child: Text('Grafico'),
@@ -62,7 +61,8 @@ class MyHomePage extends StatelessWidget {
                             )
                           ),
                           padding:EdgeInsets.all(10) ,
-                          child: Text(tr.value.toString(),
+                          child: Text(
+                            tr.value.toString(),
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -70,11 +70,25 @@ class MyHomePage extends StatelessWidget {
                           ),
                           ),
                     ),
-                    Column(
-                      children: [ 
-                        Text(tr.title),
-                        Text(tr.date.toString()),
-                      ],
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      child: Column(
+                        children: [ 
+                          Text(tr.title,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                            color: Colors.black ),
+                            ),                        
+                          Text(tr.date.toString(),
+                          style: TextStyle(
+                            fontSize: 10,
+                            color: Colors.grey
+                          ),
+                          ),
+                          
+                        ],
+                      ),
                     )
                   ],
                 ),
